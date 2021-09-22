@@ -1,0 +1,26 @@
+{% extends 'bootstrap/base.html' %}
+{% block head %}
+{{super()}}
+<meta charset="UTF-8">
+<title> {% block title %} Flask Course | {% endblock title %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock head %}
+
+{% block body %}
+{% block navbar %}
+{% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% for message in get_flashed_messages() %}
+<div class="alert alert-success alert-dismissable">
+    <button type="button" data-dismiss="alert" class="close">&times;</button>
+    {{ message }}
+</div>
+{% endfor %}
+{% block content %}
+
+{% endblock content %}
+{% block scripts %}
+    {{ super() }}
+{% endblock scripts %}
+{% endblock body %}

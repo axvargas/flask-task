@@ -1,0 +1,29 @@
+<!--
+Created Date: Wednesday September 15th 2021 8:14:59 pm
+Author: Andrés X. Vargas
+-----
+Last Modified: Wednesday September 22nd 2021 12:54:47 am
+Modified By: the developer known as Andrés X. Vargas at <axvargas@fiec.espol.edu.ec>
+-----
+Copyright (c) 2021 MattuApps
+-->
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+<!-- macro_name(parameteer) -->
+{% macro render_todo(todo, delete_form, update_form) %}
+<li class="list-group-item">
+    <span class="badge">
+        {% if todo.to_dict().done %}
+        Done
+        {% else %}
+        To Do
+        {% endif %}
+    </span>
+    {{ todo.to_dict().description }}
+    {{wtf.quick_form(delete_form, action=url_for('delete', todo_id=todo.id))}}
+    {{wtf.quick_form(update_form, action=url_for('update', todo_id=todo.id, done=todo.to_dict().done))}}
+
+</li>
+{% endmacro %}

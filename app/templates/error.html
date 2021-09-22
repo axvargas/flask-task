@@ -1,0 +1,30 @@
+<!--
+Created Date: Wednesday September 15th 2021 8:48:13 pm
+Author: Andrés X. Vargas
+-----
+Last Modified: Wednesday September 15th 2021 9:43:01 pm
+Modified By: the developer known as Andrés X. Vargas at <axvargas@fiec.espol.edu.ec>
+-----
+Copyright (c) 2021 MattuApps
+-->
+{% extends 'base.html' %}
+{% block title %}
+{{ super()}}
+{{error_code}}
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>
+                <i class="fa fa-exclamation-triangle"></i>
+                {{error_code}}
+            </h1>
+            <p>
+                <i class="fa fa-exclamation-triangle"></i>
+                {{error}}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

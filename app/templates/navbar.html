@@ -1,0 +1,52 @@
+<!--
+Created Date: Wednesday September 15th 2021 8:25:00 pm
+Author: Andrés X. Vargas
+-----
+Last Modified: Tuesday September 21st 2021 9:53:29 pm
+Modified By: the developer known as Andrés X. Vargas at <axvargas@fiec.espol.edu.ec>
+-----
+Copyright (c) 2021 MattuApps
+-->
+<!-- <nav>
+    <ul>
+        <a href="{{url_for('index')}}">
+            <img src="{{ url_for('static', filename='images/platzi.png') }}" alt="Platzi Llogo">
+        </a>
+        <li>
+            <a href="{{url_for('index')}}">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="https://platzi.com" target="_blank">
+                Go to Platzi
+            </a>
+        </li>
+    </ul>
+</nav> -->
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsesable">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/platzi.png') }}" style="max-width: 48px"
+                    alt="Platzi logo">
+            </a>
+        </div>
+
+        <div id="collapsesable" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="https://platzi.com" target="_blank">Platzi</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
